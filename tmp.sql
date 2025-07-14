@@ -1,4 +1,4 @@
--- 健康步道应用程序数据库设计
+-- Database Design for Health Trail Application
 -- Create db
 CREATE DATABASE HealthTrailApp;
 GO
@@ -47,7 +47,7 @@ CREATE TABLE Trails (
     LocationID INT NOT NULL,
     Distance DECIMAL(5,2) NOT NULL,
     Difficulty NVARCHAR(20) NOT NULL CHECK (Difficulty IN ('Easy', 'Medium', 'Hard')),
-    EstimatedTime INT, -- 预计时间（分钟）
+    EstimatedTime INT, -- Estimated time (minutes)
     Description NVARCHAR(500),
     CreatedDate DATETIME DEFAULT GETDATE(),
     IsActive BIT DEFAULT 1,
@@ -81,7 +81,7 @@ CREATE TABLE Weather (
     FOREIGN KEY (LocationID) REFERENCES Locations(LocationID)
 );
 
--- 插入测试数据
+-- Insert test data
 -- 1. insert users
 INSERT INTO Users (Username, Email, Password, Role) VALUES
 ('Grace Hopper', 'grace@plymouth.ac.uk', 'ISAD123!', 'Admin'),
